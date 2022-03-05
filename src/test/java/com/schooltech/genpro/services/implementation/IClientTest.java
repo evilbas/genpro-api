@@ -9,17 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IClientTest {
 
+    private ClientService clientService;
+
+    public IClientTest(ClientService clientService){
+        this.clientService = clientService;
+    }
+
     @Test
     void getPrice() {
-        Contract contract = new Contract();
-        Product product = new Product();
 
-        contract.setContract_id(1L);
-        product.setProduct_id(1L);
+        double price = this.clientService.getPrice(1L, 1L);
 
-        double response = (product.getCost_production() + contract.getMarge() + 0.2);
-
-        assertEquals(12, response);
+        assertEquals(0.2, price);
 
     }
 }

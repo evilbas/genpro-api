@@ -35,7 +35,6 @@ public class IClient implements ClientService {
         contract.setContract_id(contract_id);
         product.setProduct_id(product_id);
 
-
         return (product.getCost_production() + contract.getMarge() + 0.2);
     }
 }
